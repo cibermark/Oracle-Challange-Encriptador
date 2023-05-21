@@ -1,0 +1,204 @@
+ 
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    
+    body{
+        height: 100vh;
+        background-image: url(/encriptador/img/cool-background.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        display: flex;
+        justify-content: center;
+        align-items: center; 
+    }
+
+    .A{
+        width: 50%;
+        height: 100%;
+        display: inline-block;
+        display: flex;
+        gap: 10px;
+        flex-direction: column;;
+    }
+
+    .A .Translate{
+        height: 70%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        /* background-color: red; */
+    }
+
+    .A h1 {
+        color: blueviolet;
+        font-size: 24px;
+        text-transform: uppercase;
+        font-weight: bold;
+        margin-top: 10px;
+    }
+
+
+    .text{
+        width:80%;
+        height: 90%;
+        border-radius: 10px;
+        outline: none;
+        background-color: transparent;
+        border: 1px solid rgba(0,0,0,0.5);
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 35px;
+        font-size: 1.5em;
+        resize: none;
+        padding: 15px;
+        margin-top: 20px;
+    }
+
+    .text::placeholder{
+        color: steelblue;
+       
+    }
+
+    .text:focus{
+        outline: steelblue;
+        border: 2px solid steelblue ;
+
+    }
+    .nota {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        
+       
+    }
+
+    .nota span i{
+       font-size: 1.2em; 
+    }
+
+    .nota p{
+        margin-left: 10px;
+        font-size:1.2em
+    }
+
+    .buttons{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .encrypt{
+        display: inline-block;;
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-size: 1.5em;
+        background-color: rgba(128, 0, 128, 0.55);
+        color:white;
+        letter-spacing: 2px;
+        outline: none;
+        border: none;
+  
+    }
+    .decrypt{
+        display: inline-block;;
+        padding: 15px 20px;
+        border-radius: 10px;
+        font-size: 1.5em;
+        background-color: rgba(128, 0, 128, 0.55);
+        color:white;
+        letter-spacing: 2px;
+        outline: none;
+        border: none;
+        transition: .1s;
+    }
+
+    .decrypt:hover,
+    .encrypt:hover{
+       transform: scale(.9);
+    }
+
+    .decrypt:focus,
+    .encrypt:focus{
+       color: purple ;
+       background-color: white;
+    }
+
+
+
+    .B{
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .B .Translated{
+        height: 70%;
+        width: 100%;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        
+
+        /* background-color: red; */
+    }
+
+    .encriptado{
+        width: 70%;
+        height: 80%;
+        border-radius: 10px;
+        background: transparent ;
+        border: 1px solid rgba(0,0,0,0.5);
+        box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 35px;
+        color: white;
+        resize: none;
+        padding: 20px;
+        font-size: 1.5em;
+       
+    }
+    .encriptado::placeholder{
+        color: rgba(250, 235, 215, 0.674);
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .encriptado:focus{
+        outline: none;
+        
+    }
+
+    .buttons_b{
+        text-align: center;
+    }
+    #copy{
+       display: inline-block;
+        padding: 15px 20px;
+        background-color: white;
+        border-radius: 10px;
+        font-size: 1.5em;
+        background-color: rgba(128, 0, 128, 0.55);
+        color:white;
+        transition: .1s;
+        outline: none;
+        border: none;
+        letter-spacing: 3px;
+        transition: .2s;
+
+    }
+
+    #copy:hover{
+        transform: scale(.9);
+    }
+    #copy:focus{
+        background:white;
+        color: purple;
+    }
+
+    .header{
+        display: inline;
+        width: 100%;
+    }

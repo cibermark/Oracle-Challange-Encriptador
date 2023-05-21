@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="styles.css">
+    <title>encriptador prueba</title>
+</head>
+
+<body>
+
+    <section class="A">
+        <div class="Translate">
+           <h1>Encriptador - Oracle Challange</h1>
+            <textarea placeholder="escribe aqui .... " autofocus id="text" class="text" ></textarea>
+        </div>
+        <div class="nota">
+            <span>
+                <i class="fa-solid fa-triangle-exclamation"></i>
+            </span>
+            <p>Introduce solo letras minusculas sin acentos u otros signos.</p>
+        </div>
+        <div class="buttons">
+           
+            <button id="encrypt" class="encrypt">Encriptar</button>
+            <button id="decrypt" class="decrypt">Desencriptar</button>
+        </div>
+    </section>
+    
+    <section class="B">
+        <div class="Translated">
+            <textarea class="encriptado" placeholder="ningun mensaje fue encontrado" readonly></textarea>
+        </div>  
+        <div class="buttons_b"><button id="copy">Copiar</button></div>
+    </section>
+  
+
+
+    
+</body>
+
+<script src="main.js"> </script>
+</html>
