@@ -204,7 +204,7 @@ return resultText
 
 //funcion para filtrar simbolos
 function checkInput(input){
-  const check = /[^a-z 0-9 ]/g.test(input);
+  const check = /[^a-z 0-9 \n]/g.test(input);
   console.log(check);
   if(!check){
       // alert('cumple la regla ')
