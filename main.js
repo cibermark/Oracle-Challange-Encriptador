@@ -1,100 +1,220 @@
-let areaTexto = document.querySelector('#text');
-    const encript = document.querySelector('#encrypt');
-    const copy = document.querySelector('#copy');
-    let translated = document.querySelector('.encriptado');
-    const decryptbtn = document.querySelector('#decrypt');
-
-    encript.addEventListener('click', ()=>{
-
-        let content =  areaTexto.value
-        console.log(content);
-        translated.value =  encripting(content)
-
-        areaTexto.value = ""
-
-    });
+let inputContent = document.querySelector('#encrypterInput');
+let encrypt = document.querySelector('#encrypt'); 
+let decrypt = document.querySelector('#decrypt');
+let image = document.querySelector('.decryptImage');
+let noMessage  = document.querySelector('.noMessage');
+let encrypted = document.querySelector('.final-message');
+let copy = document.querySelector('.btn-copy');
 
 
-    function  encripting(string){
-       let splited =  string.split(' ')
-       console.log( splited)
-       let arr = []
-       
-       for(let i=0; i<splited.length; i++){
-        let word  = splited[i].split('')
+
+// array keys.
+
+const keys = [
+  ["e", "enter"],
+  ['o','ober'],
+  ['i','imes'],
+  ["a", "ai"],
+  ['u', 'ufat']
+]
+console.log(keys)
+
+
+//event listener for  encrypt
+encrypt.addEventListener('click', () => {
+    let content = inputContent.value;
+    if(content.length ==0 ){
+      Swal.fire({
+        title: 'Nada por encriptar, por favor ingresa el texto',
+        // text: 'Do you want to continue',
+        icon: 'warning',
+        // confirmButtonText: 'Cool'
+        showConfirmButton: true
         
-            for(let j=0; j<word.length; j++){
-                 arr.push(word[j] += randomLeters())
-            }
-            if([i] < splited.length - 1 ){
-                arr.push(' ') 
-            }
-         
+    })}else{
+
+    let checador = checkInput(content);
+    if(checador == true){
+        
+        setTimeout(() => {
+          encrypted.innerText = encripting(content)
+        },800)
+        
+        if(content.length == 0){
+          Swal.fire({
+            title: 'Nada por encriptar, por favor ingresa el texto',
+            // text: 'Do you want to continue',
+            icon: 'warning',
+            // confirmButtonText: 'Cool'
+            showConfirmButton: true
             
-       }
-
-       console.log(splited, arr)
-
-       return arr.join('')    
-    }
-
-
-
-    function randomLeters (){
-        const array = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z']
-        let letters= ''
-        letters+= array[randomNumbers()]
-        letters+=array[randomNumbers()]
-        return letters
-
-    }
-
-
-    function randomNumbers() {
-        let randomNumber = Math.floor(Math.random() * 25)
-        return randomNumber
-    }
-
-    console.log(randomLeters())
-
-
-    // Event lsitener para boton copiar
-
-    copy.addEventListener('click', ()=>{
-        translated.select() //esto solo funciona con inputs
-        document.execCommand('Copy')
-        translated.value = ''
-    })
-
-
-
-    //Event listener  decrypt
-
-    decryptbtn.addEventListener('click', ()=>{
-        let textoEncriptado = areaTexto.value
-        let splited = decrypt(textoEncriptado)
-        areaTexto.value = '' 
+          })
+        }else{
+        Swal.fire({
+          title: 'Encripting',
+          // text: 'Do you want to continue',
+          icon: 'success',
+          // confirmButtonText: 'Cool'
+          showConfirmButton: false,
+          timer:800,
+        })
+    
+        inputContent.value = '';
         
-    });
+        setTimeout(function(){ 
+        image.style.display = 'none'
+        noMessage.style.display = 'none'},800);
+      }
+    }else{
+      Swal.fire({
+        title: 'Recuerda no usar mayusculas ni simbolos',
+        // text: 'Do you want to continue',
+        icon: 'warning',
+        // confirmButtonText: 'Cool'
+        showConfirmButton: true
+        
+      })
+    }
 
-    // funcion para desencriptar
+  }
 
-    function decrypt(text){
-        let split = text.split(' ')
-       let traducido =[]  
-        for(let i=0; i<split.length; i++){
-            let palabra = split[i].split('');
-            for(let j=0; j<palabra.length; j+=3){
-                traducido.push(palabra[j])
-            }
-            if([i] < split.length - 1 ){
-                traducido.push(' ') 
-            }
-        }
+    
+})
+
+//event listener para decrypting
+
+decrypt.addEventListener('click', function(e){
+  let inputDecrypt = inputContent.value; 
+  
+  if(inputDecrypt.length == 0){
+      e.preventDefault()
+      Swal.fire({
+        title: 'Ingresa texto para desencriptar',
+        // text: 'Do you want to continue',
+        icon: 'warning',
+        // confirmButtonText: 'Cool'
+        showConfirmButton: true,     
+      });
 
       
-        console.log(traducido + ' traducido')
+    }
+    
+    let checador = checkInput(inputDecrypt);
+    if(checador){
+      console.log('hi')
+      setTimeout(() => {
+        encrypted.innerText = decripting(inputDecrypt)
+      },800);
 
-        let final = traducido.join('')
-        console.log(final)
-        translated.value = final}
+      Swal.fire({
+        title: 'Decrypting',
+        // text: 'Do you want to continue',
+        icon: 'success',
+        // confirmButtonText: 'Cool'
+        showConfirmButton: false,
+        timer:800,
+      });
+
+     inputContent.value = '';
+      setTimeout(function(){ 
+        image.style.display = 'none'
+        noMessage.style.display = 'none'},800);
+    }else{
+      Swal.fire({
+        title: 'Recuerda no usar mayusculas ni simbolos',
+        // text: 'Do you want to continue',
+        icon: 'warning',
+        // confirmButtonText: 'Cool'
+        showConfirmButton: true
+        
+      })
+    }
+    
+    
+    
+    
+    
+    
+    
+  
+})
+
+
+
+
+
+// event listener para copy.
+copy.addEventListener('click', () =>{
+
+    if(encrypted.innerText == ''){  Swal.fire({
+        title: 'No existe texto para copiar',
+        // text: 'Do you want to continue',
+        icon: 'error',
+        // confirmButtonText: 'Cool'
+        showConfirmButton: false,
+        timer: 1300
+        
+       
+      })}else{   Swal.fire({
+        title: 'Texto Copiado',
+        // text: 'Do you want to continue',
+        icon: 'success',
+        // confirmButtonText: 'Cool'
+        showConfirmButton: false,
+        timer: 1300
+      })
+      let inputcopied = encrypted.innerText
+      navigator.clipboard.writeText(inputcopied)
+      image.style.display = 'block';
+      noMessage.style.display = 'block';
+    
+    }
+    
+    encrypted.innerText = ''
+
+})
+
+
+// fucntins for encrypt
+
+function encripting(text) {
+ 
+    for (let i = 0; i < keys.length; i++) {
+      if(text.includes(keys[i][0])) {
+        text = text.replaceAll(keys[i][0],keys[i][1])
+    }
+  }
+  return text
+}
+
+// falta checar si trabaja bien
+
+function decripting(resultText) {
+ 
+  for (let i = 0; i < keys.length; i++) {
+    if(resultText.includes(keys[i][1])) {
+      resultText = resultText.replaceAll(keys[i][1],keys[i][0])
+  }
+}
+return resultText
+}
+
+
+
+
+//funcion para filtrar simbolos
+function checkInput(input){
+  const check = /[^a-z 0-9 ]/g.test(input);
+  console.log(check);
+  if(!check){
+      // alert('cumple la regla ')
+      return true
+  }else{
+      // alert('no cummple la regla');
+      return false
+  }}
+
+
+
+
+

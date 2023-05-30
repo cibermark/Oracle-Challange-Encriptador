@@ -1,204 +1,412 @@
  
-    *{
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
+   
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; 
+}
+
+body{
+    max-height: 100vh;
+    background-image: url(images/cool-background.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+header{
+    width: 100%;
+    height: 10vh;
+    padding: 10px;
+} 
+header h2{
+    position: absolute;
+    color:purple !important;
+    font-size: 2em;
+    left: 50%;
+    top: 20px;
+    transform: translateX(-50%);
+
+}
+
+header .logo{
+    position: absolute;
+    border-radius: 50%;
+    filter: drop-shadow(0px 0px 10px );
+  
+    margin-left: 30px;
+    transition: .3s;
+    left: 0;
+    top: 10px;
+    
+}
+header .logo:hover{
+    transform: scale(1.1);
+} 
+
+main {
+  
+    width: 100%;
+    height: 90vh ;
+    display: flex;
+    justify-content: space-between;   
+}
+
+.firstSection{
+    /* border: 1px solid white ; */
+    margin-left: 20px;
+    width:50% ;
+   
+}
+
+.encrypterArea{
+    /* border: 1px solid red; */
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    height: 70%;
+    margin-top: 10px;
+  
+}
+
+.encrypterArea .encrypterInput{
+    width: 90%;
+    height: 100%;
+    margin: 20px auto;
+    border-radius: 10px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 35px;
+    font-size: 1.4em;
+    resize: none;
+    padding: 15px;
+    /* margin-top: 20px; */
+    cursor: pointer;
+    
+    
+}
+
+.encrypterArea .encrypterInput:focus{
+    outline: steelblue;
+    border: 2px solid steelblue 
+}
+
+.encrypterArea .encrypterInput::placeholder{
+    color: steelblue;
+}
+
+.firstSection .warning{
+    display: flex;
+    width: 100%;
+   justify-content: center;
+   gap: 5px;
+   margin-top: 20px;
+}
+
+.firstSection .warning .warningText {
+    font-size: 1.1em;
+}
+
+.firstSection .buttonsEncrypter{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.firstSection .buttonsEncrypter .btn-Encrypt{
+    display: inline-block;;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background-color: rgba(128, 0, 128, 0.55);
+    color:white;
+    letter-spacing: 2px;
+    outline: none;
+    border: none;
+    transition: .2s;
+    opacity: .9;
+}
+
+.firstSection .buttonsEncrypter .btn-Decrypt{
+    display: inline-block;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background-color: rgba(128, 0, 128, 0.55);
+    color:white;
+    letter-spacing: 2px;
+    outline: none;
+    border: none;
+    transition: .2s;
+    opacity: .9;
+    
+}
+
+.firstSection .buttonsEncrypter .btn-Encrypt:hover,
+.firstSection .buttonsEncrypter .btn-Decrypt:hover {
+    transform: scale(.9);
+    cursor: pointer;
+}
+
+.firstSection .buttonsEncrypter .btn-Encrypt:active,
+.firstSection .buttonsEncrypter .btn-Decrypt:active {
+   color: rgba(128, 0, 128, 0.55);
+   background-color: white;
+}
+
+.secondSection{
+    /* border: 1px solid white ; */
+    width:400px;
+    height: 90%;
+    border-radius: 10px;
+    background: transparent ;
+    border: 1px solid rgba(0,0,0,0.5);
+    box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 35px;
+    padding: 20px;
+    display: flex ;
+    flex-direction: column;
+    align-items:center;
+    margin:0 auto;
+    margin-top: 20px;
+  
+  
+}
+
+.secondSection .decryptImage img {
+    border-radius: 10px;
+    
+}
+.secondSection .noMessage{
+    margin-top: 20px;
+    text-align: center;
+    display: flex ;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.secondSection .no-Message{
+    color: antiquewhite;
+    font-size: 1.4em;
+}
+
+.secondSection p {
+    color: antiquewhite;
+    font-size: 1em;
+}
+
+.secondSection .message{
+    height: 100%;
+    width: 100%;
+    
+}
+
+.secondSection .final-message{
+    font-size: 1.4em;
+    color: antiquewhite;
+    
+}
+
+.secondSection .buttonsDecrypt{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.secondSection .buttonsDecrypt .btn-copy{
+    display: inline-block;
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    background-color: rgba(128, 0, 128, 0.55);
+    color:white;
+    letter-spacing: 2px;
+    outline: none;
+    border: none;
+    transition: .2s;
+    opacity: .9;
+}
+
+.secondSection .buttonsDecrypt .btn-copy:hover
+ {
+    transform: scale(.9);
+    cursor: pointer;
+}
+
+.secondSection .buttonsDecrypt .btn-copy:active{
+   color: rgba(128, 0, 128, 0.55);
+   background-color: white;
+}
+
+
+
+
+
+/* responsive design tablet */
+@media screen and (max-width: 808px) {
+ 
+
+  header {
+    display: flex;
+    flex-direction: row;
+  }
+
+  header h2{
+ 
+    width: 80%;
+    text-align: center;
+  }
+
+  header .logo{
+    width: 60px;
+  }
+
+  .firstSection .warning .warningText {
+    font-size: .9em;
+   
+  }
+
+  .firstSection .buttonsEncrypter .btn-Encrypt,
+  .firstSection .buttonsEncrypter .btn-Decrypt{
+      font-size: .9em;
+      padding: 10px 10px;
+      
+  }
+
+  .secondSection{
+   
+    width:400px;
+    height: 90%;
+    border-radius: 10px;
+    margin-right: 20px;
+    margin-top: 20px;
+  
+}
+ 
+
+
+
+
+
+
+
+
+}
+
+@media screen and (max-width: 610px) {
+   
+  
+ 
+    .logo{
+        width: 40px;
+    }
+
+   
+    header h2{
+        width: 70%;
+        font-size: 1.2em;
+    }
+
+    main{
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+      
+        gap: 20px;
+     
+    }
+    .firstSection {
+      
+        width: 100%;
+        height: 250px;
+        
+        margin-left: 0;
     }
     
-    body{
-        height: 100vh;
-        background-image: url(img/cool-background.png);
-        background-repeat: no-repeat;
-        background-size: cover;
-        display: flex;
-        justify-content: center;
-        align-items: center; 
+    .encrypterArea{
+      
+        margin-top: 0;
+        height: 75%;
+       
     }
 
-    .A{
-        width: 50%;
-        height: 100%;
-        display: inline-block;
+    .encrypterArea .encrypterInput{
+        margin: 10px auto;
+        font-size: 1.2em;
+    }
+
+    .firstSection .warning{
         display: flex;
+        width: 100%;
+        gap: 5px;
+       justify-content: center;
+      margin-top:10px ;
+      
+    }
+
+    .firstSection .warning .warningText {
+        font-size: .8em;
+       
+    }
+
+    .firstSection .buttonsEncrypter{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      
         gap: 10px;
-        flex-direction: column;;
+        margin-top: 5px;
     }
 
-    .A .Translate{
-        height: 70%;
-        width: 100%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        /* background-color: red; */
+    .firstSection .buttonsEncrypter .btn-Encrypt,
+    .firstSection .buttonsEncrypter .btn-Decrypt{
+        font-size: .9em;
+        padding: 5px 10px;
+        
+    }
+    
+
+    .secondSection{
+        width: 90%;
+        height:100% ;
+        margin: 0 auto;
+        margin-bottom: 20px;
+       
     }
 
-    .A h1 {
-        color: blueviolet;
-        font-size: 24px;
-        text-transform: uppercase;
-        font-weight: bold;
+    .secondSection .decryptImage img{
+       width: 100px;
+    }
+
+    .secondSection .noMessage{
+        font-size: .9em;
         margin-top: 10px;
-    }
-
-
-    .text{
-        width:80%;
-        height: 90%;
-        border-radius: 10px;
-        outline: none;
-        background-color: transparent;
-        border: 1px solid rgba(0,0,0,0.5);
-        box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 35px;
-        font-size: 1.5em;
-        resize: none;
-        padding: 15px;
-        margin-top: 20px;
-    }
-
-    .text::placeholder{
-        color: steelblue;
+        margin-bottom: 10px;
        
     }
-
-    .text:focus{
-        outline: steelblue;
-        border: 2px solid steelblue ;
-
-    }
-    .nota {
-        width: 100%;
-        display: flex;
-        justify-content: center;
+    
+    .secondSection .final-message{
+        font-size: 1.2em;
         
-       
     }
 
-    .nota span i{
-       font-size: 1.2em; 
-    }
-
-    .nota p{
-        margin-left: 10px;
-        font-size:1.2em
-    }
-
-    .buttons{
-        width: 100%;
-        display: flex;
-        justify-content: center;
-        gap: 20px;
-    }
-
-    .encrypt{
-        display: inline-block;;
-        padding: 15px 20px;
-        border-radius: 10px;
-        font-size: 1.5em;
-        background-color: rgba(128, 0, 128, 0.55);
-        color:white;
-        letter-spacing: 2px;
-        outline: none;
-        border: none;
-  
-    }
-    .decrypt{
-        display: inline-block;;
-        padding: 15px 20px;
-        border-radius: 10px;
-        font-size: 1.5em;
-        background-color: rgba(128, 0, 128, 0.55);
-        color:white;
-        letter-spacing: 2px;
-        outline: none;
-        border: none;
-        transition: .1s;
-    }
-
-    .decrypt:hover,
-    .encrypt:hover{
-       transform: scale(.9);
-    }
-
-    .decrypt:focus,
-    .encrypt:focus{
-       color: purple ;
-       background-color: white;
-    }
-
-
-
-    .B{
-        width: 50%;
+    .secondSection .message{
         height: 100%;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    .B .Translated{
-        height: 70%;
         width: 100%;
-        display:flex;
-        justify-content: center;
-        align-items: center;
-        
-
-        /* background-color: red; */
-    }
-
-    .encriptado{
-        width: 70%;
-        height: 80%;
-        border-radius: 10px;
-        background: transparent ;
-        border: 1px solid rgba(0,0,0,0.5);
-        box-shadow: rgba(0, 0, 0, 0.5) 0px 15px 35px;
-        color: white;
-        resize: none;
-        padding: 20px;
-        font-size: 1.5em;
-       
-    }
-    .encriptado::placeholder{
-        color: rgba(250, 235, 215, 0.674);
-        font-size: 1.5em;
-        text-align: center;
-    }
-    .encriptado:focus{
-        outline: none;
         
     }
+  
 
-    .buttons_b{
-        text-align: center;
-    }
-    #copy{
-       display: inline-block;
-        padding: 15px 20px;
-        background-color: white;
-        border-radius: 10px;
-        font-size: 1.5em;
-        background-color: rgba(128, 0, 128, 0.55);
-        color:white;
-        transition: .1s;
-        outline: none;
-        border: none;
-        letter-spacing: 3px;
-        transition: .2s;
-
+    .secondSection .buttonsDecrypt .btn-copy{
+        font-size: .9em;
+        padding: 5px 10px;
     }
 
-    #copy:hover{
-        transform: scale(.9);
-    }
-    #copy:focus{
-        background:white;
-        color: purple;
-    }
 
-    .header{
-        display: inline;
-        width: 100%;
-    }
+}
